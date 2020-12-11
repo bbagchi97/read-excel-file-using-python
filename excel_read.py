@@ -1,8 +1,9 @@
 import openpyxl
 
 def readExcel():
+    # Defining the name of the file statically
     path = "py-read.xlsx"
-
+    # Opening the active sheet of the excel sheet
     wb_obj = openpyxl.load_workbook(path)
     sheet_obj = wb_obj.active
     cell_obj = sheet_obj.cell(row=1, column=1)
@@ -19,8 +20,8 @@ def readExcel():
       cell_obj = sheet_obj.cell(row = 1, column = i)
       print(cell_obj.value, end = " ")
 
-    for i in range(1, m_columns+1):
+    for i in range(1, m_columns+1): #Traversing all columns
       print(f"\nPrinting column {i}\n")
-      for j in range(1, m_rows+1):
+      for j in range(1, m_rows+1): # Traversing all rows
         cell_obj = sheet_obj.cell(row=j, column=i)
         print(cell_obj.value)
